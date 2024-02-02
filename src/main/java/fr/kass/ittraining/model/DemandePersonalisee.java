@@ -1,8 +1,7 @@
 package fr.kass.ittraining.model;
 
 import jakarta.persistence.*;
-import jakarta.validation.constraints.Email;
-import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -13,25 +12,19 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class User {
+public class DemandePersonalisee {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @NotBlank
-    private String nom;
+    @ManyToOne
+    private User user;
 
     @NotBlank
-    private String prenom;
+    private String typeFormation;
 
-    private String entreprise;
-
-    //@NotBlank
-    private String[] telephones;
-
-    @NotBlank
-    @Email
-    private String email;
+@NotBlank
+    private String demande;
 
 }
