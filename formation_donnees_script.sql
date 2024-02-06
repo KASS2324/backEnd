@@ -17,3 +17,9 @@ INSERT INTO ittraining.formation VALUES (2,
 "Certifications PHP",
 "Certifications ENI",
 "Paris");
+INSERT INTO ittraining.theme VALUES (1,
+"Langages informatiques",
+);
+INSERT INTO ittraining.theme VALUES (2,
+"Certifications ENI",
+);

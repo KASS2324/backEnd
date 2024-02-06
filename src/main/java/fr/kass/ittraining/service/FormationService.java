@@ -38,4 +38,16 @@ public class FormationService {
     public void update(Formation formation){
         formationRepository.save(formation);
     }
+
+    public List<Formation> findByTheme(String theme) {
+        return formationRepository.findByTheme(theme);
+    }
+
+    public List<Formation> findByVille(String ville) {
+        return formationRepository.findByVille(ville);
+    }
+
+    public List<Formation> findByThemeAndVille(String theme, String ville) {
+        return formationRepository.findByThemeAndVille(theme, ville);
+    }
 }
