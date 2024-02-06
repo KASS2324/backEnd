@@ -24,7 +24,7 @@ public class DemandePersonalisee {
     @NotBlank
     private String typeFormation;
 
-@NotBlank
+    @NotBlank
     private String demande;
 
 }
