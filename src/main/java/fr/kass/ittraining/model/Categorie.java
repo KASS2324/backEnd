@@ -1,29 +1,25 @@
 package fr.kass.ittraining.model;
 
-import jakarta.persistence.*;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
 import jakarta.validation.constraints.NotBlank;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import java.util.ArrayList;
-import java.util.List;
-
 @Entity
-@Getter
-@Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class Theme {
-
+@Getter
+@Setter
+public class Categorie {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private  Long id;
+    private Long id;
 
     @NotBlank
-    private String intitule;
-
-    @ManyToMany(mappedBy = "themes")
-    private List<Formation> formations = new ArrayList<Formation>();
+    private String nomCategorie;
 }

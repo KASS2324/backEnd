@@ -1,0 +1,22 @@
+1. Demande Perso et User (many to one)
+- Il faut dans le front : 
+Nom :
+Prénom :
+Nom Entreprise:
+Email :
+Demande :
+
+- On doit vérifier que l'email existe dans la table user
+- Si oui, retrouver le user_id, sinon throw une erreur : "Créer un compte"
+
+>>> On arrive à retrouver un user via son email. 
+>>> On arrive avec la méthode getUserIdByEmail à récupérer le user_id
+
+- Dans le cas de oui, prendre le user_id et la demande du front et l'ajouter dans le tableau demande_personalisée
+
+>>> Prendre email en entrée 
+>>> Get user_id by email 
+>>> save DemandePersonalisee avec (id(auto-incrémentation), type_demande, email, demande, user_id)
+
+
+2. Trouver les formations à partir d'un thème (many to many)

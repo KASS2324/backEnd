@@ -11,19 +11,18 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-@Getter
-@Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class Theme {
-
+@Getter
+@Setter
+public class Soustheme {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private  Long id;
+    private Long id;
 
     @NotBlank
-    private String intitule;
+    private String intituleST;
 
-    @ManyToMany(mappedBy = "themes")
+    @ManyToMany(mappedBy = "sousthemes")
     private List<Formation> formations = new ArrayList<Formation>();
 }

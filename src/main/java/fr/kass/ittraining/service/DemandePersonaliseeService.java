@@ -12,9 +12,11 @@ public class DemandePersonaliseeService {
 
 
     private final DemandePersonaliseeRepository demandePersonaliseeRepository;
+    private final UserService userService;
 
-    public DemandePersonaliseeService(DemandePersonaliseeRepository demandePersonaliseeRepository) {
+    public DemandePersonaliseeService(DemandePersonaliseeRepository demandePersonaliseeRepository, UserService userService) {
         this.demandePersonaliseeRepository = demandePersonaliseeRepository;
+        this.userService = userService;
     }
 
     public List<DemandePersonalisee> findAll(){
@@ -27,8 +29,8 @@ public class DemandePersonaliseeService {
         );
     }
 
-    public void save(DemandePersonalisee demandePersonalisee){
-        demandePersonaliseeRepository.save(demandePersonalisee);
+    public DemandePersonalisee save(DemandePersonalisee demandePersonalisee){
+        return demandePersonaliseeRepository.save(demandePersonalisee);
     }
 
     public void deleteById(Long id){
@@ -38,4 +40,8 @@ public class DemandePersonaliseeService {
     public void update(DemandePersonalisee demandePersonalisee){
         demandePersonaliseeRepository.save(demandePersonalisee);
     }
+
+
+
+
 }

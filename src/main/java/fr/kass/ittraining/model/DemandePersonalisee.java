@@ -18,13 +18,14 @@ public class DemandePersonalisee {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @ManyToOne
-    private User user;
-
     @NotBlank
-    private String typeFormation;
+    private String typeDemande;
 
     @NotBlank
     private String demande;
+
+    @ManyToOne
+    @JoinColumn(name="user_id")
+    private User user; // fabrique user_id
 
 }

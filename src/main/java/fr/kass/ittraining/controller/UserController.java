@@ -41,4 +41,12 @@ public class UserController {
     public void update(@RequestBody User user){
         userService.update(user);
     }
+
+    @GetMapping("/email/{email}")
+    public User findByEmail(@PathVariable String email){
+        return userService.findByEmail(email);
+    }
+
+    @GetMapping("email_user_id/{email}")
+    public Long getUserIdByEmail(@PathVariable String email){ return userService.getUserIdByEmail(email); }
 }

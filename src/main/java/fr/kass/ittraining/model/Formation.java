@@ -1,14 +1,14 @@
 package fr.kass.ittraining.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Getter
@@ -25,23 +25,42 @@ public class Formation {
     private String nom;
 
     @NotBlank
-    private String categorie;
-
-    @NotBlank
-    private String theme;
-
-    @NotBlank
-    private String sousTheme;
-
-    @NotBlank
     private String prix;
 
     @NotBlank
-    private String description;
+    private String description; // limiter nombre de caractères maximal
 
     @NotBlank
-    private String duree;
+    private String details;
 
     @NotBlank
-    private String ville;
+    private String duree; // à voir si uniquement en heures
+
+    @ManyToOne
+    private Categorie categorie;
+
+    @ManyToMany
+    @JoinTable(
+            name="formation_centre",
+            joinColumns = @JoinColumn(name="id_formation"),
+            inverseJoinColumns = @JoinColumn(name="id_centre")
+    )
+    List<Centre> centres= new ArrayList<Centre>();
+
+    @ManyToMany
+    @JoinTable(
+            name="formation_theme",
+            joinColumns = @JoinColumn(name="id_formation"),
+            inverseJoinColumns = @JoinColumn(name="id_theme")
+    )
+    List<Theme> themes= new ArrayList<Theme>();
+
+    @ManyToMany
+    @JoinTable(
+            name="formation_soustheme",
+            joinColumns = @JoinColumn(name="id_formation"),
+            inverseJoinColumns = @JoinColumn(name="id_soustheme")
+    )
+    List<Soustheme> sousthemes= new ArrayList<Soustheme>();
+
 }

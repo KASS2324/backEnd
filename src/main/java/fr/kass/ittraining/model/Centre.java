@@ -11,19 +11,30 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-@Getter
-@Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class Theme {
-
+@Getter
+@Setter
+public class Centre {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private  Long id;
+    private Long id;
 
     @NotBlank
-    private String intitule;
+    private String nomCentre;
 
-    @ManyToMany(mappedBy = "themes")
+    @NotBlank
+    private String adresse;
+
+    @NotBlank
+    private int codePostal;
+
+    @NotBlank
+    private String ville;
+
+    @ManyToMany(mappedBy = "centres")
     private List<Formation> formations = new ArrayList<Formation>();
+
+
+
 }

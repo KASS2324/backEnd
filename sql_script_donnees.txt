@@ -1,0 +1,17 @@
+SELECT * FROM it_training_base_locale.user;
+INSERT INTO it_training_base_locale.user VALUES (1,
+"contact1@email.com",
+"MonEntreprise",
+"Dupont",
+"MonPassword",
+"Paul",
+"Client",
+"0101010101");
+
+
+INSERT INTO it_training_base_locale.demande_personalisee VALUES(
+1,
+1,
+"Suivre une formation PHP pour un groupe de 12 personnes.",
+"intra-entreprise"
+);

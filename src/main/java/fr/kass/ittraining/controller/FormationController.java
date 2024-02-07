@@ -43,18 +43,5 @@ public class FormationController {
         formationService.update(formation);
     }
 
-    @GetMapping("/byTheme")
-    public List<Formation> findByTheme(@RequestParam String theme){
-        return formationService.findByTheme(theme);
-    }
 
-    @GetMapping("/byVille")
-    public List<Formation> findByVille(@RequestParam String ville){
-        return formationService.findByVille(ville);
-    }
-
-    @GetMapping("/byThemeAndVille")
-    public List<Formation> byThemeAndVille(@RequestParam String theme, @RequestParam String ville){
-        return formationService.findByThemeAndVille(theme, ville);
-    }
 }

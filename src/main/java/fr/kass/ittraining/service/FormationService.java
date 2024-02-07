@@ -2,19 +2,28 @@ package fr.kass.ittraining.service;
 
 import fr.kass.ittraining.exception.NotFoundException;
 import fr.kass.ittraining.model.Formation;
+import fr.kass.ittraining.model.Theme;
 import fr.kass.ittraining.repository.FormationRepository;
+import fr.kass.ittraining.repository.ThemeRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public class FormationService {
 
+    @Autowired
     private final FormationRepository formationRepository;
 
-    public FormationService(FormationRepository formationRepository) {
+    @Autowired
+    private final ThemeRepository themeRepository;
+
+    public FormationService(FormationRepository formationRepository, ThemeRepository themeRepository) {
         this.formationRepository = formationRepository;
+        this.themeRepository = themeRepository;
     }
 
     public List<Formation> findAll(){
@@ -39,15 +48,12 @@ public class FormationService {
         formationRepository.save(formation);
     }
 
-    public List<Formation> findByTheme(String theme) {
-        return formationRepository.findByTheme(theme);
+    /*
+    public List<Formation> findByTheme(String intitule) {
+        Long theme_id = themeRepository.getIntituleById(intitule);
+        return themeRepository.findByIntitule(intitule)
     }
+    */
 
-    public List<Formation> findByVille(String ville) {
-        return formationRepository.findByVille(ville);
-    }
 
-    public List<Formation> findByThemeAndVille(String theme, String ville) {
-        return formationRepository.findByThemeAndVille(theme, ville);
-    }
 }

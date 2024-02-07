@@ -39,4 +39,16 @@ public class UserService {
         userRepository.save(user);
     }
 
+    public User findByEmail(String email){ return userRepository.findByEmail(email);}
+    public Long getUserId(User user) {return user.getId();}
+
+    public Long getUserIdByEmail(String email){
+        User user= findByEmail(email);
+        Long user_id=getUserId(user);
+        return user_id;
+    }
+
+    // Voir demande personalisee service pour les requêtes demandes...
+
+
 }
