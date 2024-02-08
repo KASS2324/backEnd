@@ -3,18 +3,20 @@ package fr.kass.ittraining.service;
 import fr.kass.ittraining.exception.NotFoundException;
 import fr.kass.ittraining.model.Formation;
 import fr.kass.ittraining.repository.FormationRepository;
+import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public class FormationService {
 
     private final FormationRepository formationRepository;
+    private final JdbcTemplate jdbcTemplate;
 
-    public FormationService(FormationRepository formationRepository) {
+    public FormationService(FormationRepository formationRepository, JdbcTemplate jdbcTemplate) {
         this.formationRepository = formationRepository;
+        this.jdbcTemplate = jdbcTemplate;
     }
 
     public List<Formation> findAll(){
@@ -49,5 +51,9 @@ public class FormationService {
 
     public List<Formation> findByThemeAndVille(String theme, String ville) {
         return formationRepository.findByThemeAndVille(theme, ville);
+    }
+
+    public List<String> findThemes() {
+        return jdbcTemplate.queryForList("SELECT DISTINCT theme FROM formation", String.class);
     }
 }
