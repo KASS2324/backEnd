@@ -18,13 +18,13 @@ public class DemandePersonalisee {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @ManyToOne
-    private User user;
-
     @NotBlank
     private String typeFormation;
 
     @NotBlank
     private String demande;
+
+    @ManyToOne(cascade = CascadeType.PERSIST)
+    private User user; // fabrique user_id
 
 }
