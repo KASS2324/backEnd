@@ -8,9 +8,6 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import java.util.ArrayList;
-import java.util.List;
-
 @Entity
 @Getter
 @Setter
@@ -30,23 +27,11 @@ public class User {
 
     private String entreprise;
 
-    @NotBlank
+    //@NotBlank
     private String telephones;
 
     @NotBlank
     @Email
     private String email;
-
-
-    private String password; // revoir et à hasher  avec sécurité et inscription au site
-
-
-    private String role; // peut faire en enum plus tard
-
-    // @ManyToMany(mappedBy = "users")
-    // private List<Session> sessions = new ArrayList<Session>();
-
-    @OneToMany(mappedBy = "user")
-    private List<DemandePersonalisee> demandes= new ArrayList<>();
 
 }
