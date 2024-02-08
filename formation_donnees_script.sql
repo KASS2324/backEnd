@@ -16,3 +16,17 @@ INSERT INTO ittraining.formation VALUES (2,
 "Certifications PHP",
 "Certifications ENI",
 "Paris");
+
+INSERT INTO ittraining.session VALUES (
+1,
+"20 Mai 2024",
+"20 Avril 2024",
+1
+);
+
+INSERT INTO ittraining.evaluation VALUES (
+1,
+"Super Formateur",
+5,
+1
+);

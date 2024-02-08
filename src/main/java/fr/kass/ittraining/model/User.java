@@ -8,6 +8,9 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Entity
 @Getter
 @Setter
@@ -33,5 +36,8 @@ public class User {
     @NotBlank
     @Email
     private String email;
+
+    @ManyToMany(mappedBy = "users")
+    private List<Session> sessions = new ArrayList<Session>();
 
 }
