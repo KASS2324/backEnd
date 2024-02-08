@@ -28,7 +28,7 @@ public class User {
     private String entreprise;
 
     //@NotBlank
-    private String[] telephones;
+    private String telephones;
 
     @NotBlank
     @Email
