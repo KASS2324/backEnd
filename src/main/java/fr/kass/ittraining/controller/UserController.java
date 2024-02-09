@@ -1,6 +1,7 @@
 package fr.kass.ittraining.controller;
 
 import fr.kass.ittraining.model.User;
+import fr.kass.ittraining.service.SessionService;
 import fr.kass.ittraining.service.UserService;
 import org.springframework.web.bind.annotation.*;
 
@@ -12,9 +13,11 @@ import java.util.List;
 public class UserController {
 
     private final UserService userService;
+    private final SessionService sessionService;
 
-    public UserController(UserService userService) {
+    public UserController(UserService userService, SessionService sessionService) {
         this.userService = userService;
+        this.sessionService = sessionService;
     }
 
     @GetMapping("/all")
@@ -41,4 +44,12 @@ public class UserController {
     public void update(@RequestBody User user){
         userService.update(user);
     }
+
+
+    // @GetMapping("/searchBySessionId/{id}")
+    // public List<User> searchBySessionId(@PathVariable Long id){return userService.findBySessionId(id);}
+
+    // @GetMapping("/searchByDate")
+    // @ResponseBody
+    // public List<User> searchByDateEndSession(@RequestParam(required = false) String date){ return userService.searchByDateEndSession(date); }
 }

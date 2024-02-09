@@ -39,4 +39,8 @@ public class UserService {
         userRepository.save(user);
     }
 
+    // public List<User> findBySessionId(Long id){ return userRepository.findBySessionId(id);}
+
+    // public List<User> searchByDateEndSession(String date){ return userRepository.searchBySessionDateEndSessionLike(date); }
+
 }

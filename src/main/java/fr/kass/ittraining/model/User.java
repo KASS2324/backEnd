@@ -1,5 +1,6 @@
 package fr.kass.ittraining.model;
 
+
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
@@ -39,5 +40,6 @@ public class User {
 
     @ManyToMany(mappedBy = "users")
     private List<Session> sessions = new ArrayList<Session>();
+
 
 }

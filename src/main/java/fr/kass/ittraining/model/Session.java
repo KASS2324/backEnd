@@ -29,7 +29,7 @@ public class Session {
     @ManyToOne(cascade = CascadeType.PERSIST)
     private Formation formation;
 
-    @ManyToMany(cascade = CascadeType.PERSIST)
+    @ManyToMany(cascade = {CascadeType.PERSIST,CascadeType.MERGE})
     @JoinTable(
             name="session_user",
             joinColumns = @JoinColumn(name = "id_session"),

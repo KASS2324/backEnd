@@ -24,9 +24,21 @@ INSERT INTO ittraining.session VALUES (
 1
 );
 
+INSERT INTO ittraining.session VALUES (
+2,
+"21 Juin 2024",
+"21 Mai 2024",
+2
+);
+
 INSERT INTO ittraining.evaluation VALUES (
 1,
 "Super Formateur",
 5,
+1
+);
+
+INSERT INTO ittraining.session_user VALUES(
+1,
 1
 );
