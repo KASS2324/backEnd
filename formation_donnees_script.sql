@@ -46,3 +46,8 @@ INSERT INTO ittraining.session_user VALUES(
 1,
 2
 );
+INSERT INTO ittraining.session VALUES(
+3,
+"23 Juillet 2024",
+"23 Juin 2024",
+1);

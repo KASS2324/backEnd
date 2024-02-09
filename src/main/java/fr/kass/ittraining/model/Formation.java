@@ -44,4 +44,6 @@ public class Formation {
 
     @NotBlank
     private String ville;
+
+    private String details;
 }

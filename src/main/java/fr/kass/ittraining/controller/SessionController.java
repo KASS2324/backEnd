@@ -43,5 +43,8 @@ public class SessionController {
         sessionService.update(session);
     }
 
+    @GetMapping("/formations/{id}")
+    public List<Session> findSessionsFormation(@PathVariable long id){ return sessionService.findIdSessionsFormation(id);}
+
 
 }

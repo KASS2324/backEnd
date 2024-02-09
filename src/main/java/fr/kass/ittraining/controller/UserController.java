@@ -1,7 +1,6 @@
 package fr.kass.ittraining.controller;
 
 import fr.kass.ittraining.model.User;
-import fr.kass.ittraining.service.SessionService;
 import fr.kass.ittraining.service.UserService;
 import org.springframework.web.bind.annotation.*;
 
@@ -13,12 +12,16 @@ import java.util.List;
 public class UserController {
 
     private final UserService userService;
-    private final SessionService sessionService;
 
-    public UserController(UserService userService, SessionService sessionService) {
+    public UserController(UserService userService) {
         this.userService = userService;
-        this.sessionService = sessionService;
     }
+    // private final SessionService sessionService;
+
+    //public UserController(UserService userService, SessionService sessionService) {
+        // this.userService = userService;
+        //this.sessionService = sessionService;
+    // }
 
     @GetMapping("/all")
     public List<User> findAll(){

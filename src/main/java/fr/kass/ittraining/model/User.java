@@ -1,6 +1,7 @@
 package fr.kass.ittraining.model;
 
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
@@ -39,7 +40,10 @@ public class User {
     private String email;
 
     @ManyToMany(mappedBy = "users")
+    @JsonBackReference("user_session")
     private List<Session> sessions = new ArrayList<Session>();
+
+    private String role;
 
 
 }
