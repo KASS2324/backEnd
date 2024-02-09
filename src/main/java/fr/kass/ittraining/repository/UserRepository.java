@@ -14,6 +14,6 @@ public interface UserRepository extends JpaRepository<User, Long> {
     // @Query(value = "SELECT u.nom, u.prenom FROM user u INNER JOIN session_user su on u.id=su.id_user INNER JOIN session s on su.id_session=s.id WHERE s.date_end_session LIKE '%date%'", nativeQuery = true)
     // List<User> searchBySessionDateEndSessionLike(@Param("date") String date);
 
-    // @Query(value="SELECT u.nom, u.prenom FROM user u INNER JOIN session_user su on u.id=su.id_user INNER JOIN session s on su.id_session=s.id WHERE s.id = :id", nativeQuery = true)
-   //  List<User> findBySessionId(Long id);
+    // @Query(value="SELECT u.* FROM user u INNER JOIN session_user su on u.id=su.id_user INNER JOIN session s on su.id_session=s.id WHERE s.id = :id", nativeQuery = true)
+   //  List<User> findBySessionId(@Param("id") Long id);
 }
