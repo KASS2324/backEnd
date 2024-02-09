@@ -42,3 +42,7 @@ INSERT INTO ittraining.session_user VALUES(
 1,
 1
 );
+INSERT INTO ittraining.session_user VALUES(
+1,
+2
+);
