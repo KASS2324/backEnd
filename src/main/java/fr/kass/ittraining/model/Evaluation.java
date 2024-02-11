@@ -1,5 +1,6 @@
 package fr.kass.ittraining.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
@@ -25,6 +26,7 @@ public class Evaluation {
     private String commentaire;
 
     @ManyToOne(cascade = CascadeType.PERSIST)
+    @JsonBackReference
     private Session session;
 
 }
