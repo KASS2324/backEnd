@@ -1,5 +1,6 @@
 package fr.kass.ittraining.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.*;
 import lombok.AllArgsConstructor;
@@ -19,6 +20,7 @@ public class DemandePersonalisee {
     private Long id;
 
     @ManyToOne(cascade = CascadeType.PERSIST)
+    @JsonBackReference
     private User user;
 
     @NotBlank
