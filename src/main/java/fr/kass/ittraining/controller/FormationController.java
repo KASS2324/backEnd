@@ -1,7 +1,6 @@
 package fr.kass.ittraining.controller;
 
 import fr.kass.ittraining.model.Formation;
-import fr.kass.ittraining.model.Theme;
 import fr.kass.ittraining.service.FormationService;
 import org.springframework.web.bind.annotation.*;
 
@@ -56,5 +55,10 @@ public class FormationController {
     @GetMapping("/byThemeAndVille")
     public List<Formation> byThemeAndVille(@RequestParam String theme, @RequestParam String ville){
         return formationService.findByThemeAndVille(theme, ville);
+    }
+
+    @GetMapping("/themes")
+    public List<String> getThemes(){
+        return formationService.findThemes();
     }
 }

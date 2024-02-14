@@ -1,9 +1,6 @@
 package fr.kass.ittraining.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -44,4 +41,7 @@ public class Formation {
 
     @NotBlank
     private String ville;
+
+    @Column(name = "detail", columnDefinition = "VARCHAR(10000)")
+    private String detail;
 }
