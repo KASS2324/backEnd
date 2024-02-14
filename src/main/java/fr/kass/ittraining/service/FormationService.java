@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 @Service
 public class FormationService {
@@ -63,16 +64,30 @@ public class FormationService {
     public List<Formation> findFormationsByTheme(String theme){
         List<Attributs> attributs = attributsService.findByNomContaining(theme);
         System.out.println("Attributs : " + attributs);
-        List<Formation> formations= new ArrayList<Formation>();
+        List<Formation> formationsList= new ArrayList<Formation>();
+        List<Formation> formationsRecherche= new ArrayList<Formation>();
         for(int i=0; i<attributs.size();i++){
             Long attribut_id= attributs.get(i).getId();
             System.out.println("Attribut id : " + attribut_id);
-            formations = findFormationsAttributId(attribut_id);
-            System.out.println("Formation id : " + formations.get(i).getId());
+            formationsRecherche=findFormationsAttributId(attribut_id);
+            for(int formation1=0;formation1<formationsRecherche.size();formation1++){
+                Boolean ajouter = true;
+                for(int formation2=0;formation2<formationsList.size();formation2++){
+                    if(formationsRecherche.get(formation1).equals(formationsList.get(formation2))){
+                        ajouter = false;
+                    }
+                }
+                if(ajouter){
+                    formationsList.add(formationsRecherche.get(formation1));
+                }
+            }
+
+
+            //System.out.println("Formation id : " + formations.get(i).getId());
 
         }
 
-        return formations;
+        return formationsList;
     }
 
 
@@ -92,10 +107,30 @@ public class FormationService {
         return formations;
     }
 
+    public List<Formation> findByVille(String ville) {
+        return formationRepository.findByVille(ville);
+    }
+
+
+    public List<Formation> findByFormationsThemeAndVille(String theme, String ville) {
+        List<Formation> formations = findFormationsByTheme(theme);
+        List<Formation> formationList = new ArrayList<Formation>();
+
+        for(int formation=0;formation<formations.size();formation++){
+            if(Objects.equals(formations.get(formation).getVille(), ville)){
+                formationList.add(formations.get(formation));
+            }
+        }
+
+        return formationList;
+
+    }
+
+
+
     /*public List<Formation> findByTheme(String theme) {
         return formationRepository.findByTheme(theme);
     }
-
 
 
     public List<Formation> findByVille(String ville) {

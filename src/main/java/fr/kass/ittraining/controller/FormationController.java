@@ -68,5 +68,15 @@ public class FormationController {
         return formationService.findFormationsByTheme(theme);
     }
 
+    @GetMapping("/byVille")
+    public List<Formation> findByVille(@RequestParam String ville){
+        return formationService.findByVille(ville);
+    }
+
+    @GetMapping("/byThemeAndVille")
+    public List<Formation> findByFormationsThemeAndVille(@RequestParam String theme, @RequestParam String ville){
+        return formationService.findByFormationsThemeAndVille(theme, ville);
+    }
+
 
 }
