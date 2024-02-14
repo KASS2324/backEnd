@@ -47,15 +47,9 @@ public class SessionService {
 
 
     public List<Session> findIdSessionsFormation(Long id) {
-        List<Long> sessions_id = new ArrayList<>();
+        List<Long> sessions_id;
         List<Session> sessions = new ArrayList<>();
 
-        /*RowMapper<Session> sessionRowMapper = (rs, rowNum) -> new Session(rs.getLong("id"),
-                rs.getString("date_end_session"),
-                rs.getString("date_start_session"),
-               null, null);
-        ;
-        */
         sessions_id = jdbcTemplate.queryForList("SELECT session.id FROM session " +
                 "INNER JOIN formation on session.formation_id=formation.id " +
                 "WHERE formation.id = ?", Long.class,id);
@@ -67,6 +61,12 @@ public class SessionService {
         return sessions;
     }
 
+     /*RowMapper<Session> sessionRowMapper = (rs, rowNum) -> new Session(rs.getLong("id"),
+                rs.getString("date_end_session"),
+                rs.getString("date_start_session"),
+               null, null);
+        ;
+        */
 
 
 
