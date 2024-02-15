@@ -21,6 +21,16 @@ public class DemandePersonaliseeService {
         return demandePersonaliseeRepository.findAll();
     }
 
+
+
+    /*
+    public List<DemandePersonalisee> findAll(){
+        List<DemandePersonalisee> demandes=
+        return demandes;
+    }
+
+     */
+
     public DemandePersonalisee findById(Long id){
         return demandePersonaliseeRepository.findById(id).orElseThrow(
                 () -> new NotFoundException("demandePersonalisee d'Id "+id+" non trouvée")

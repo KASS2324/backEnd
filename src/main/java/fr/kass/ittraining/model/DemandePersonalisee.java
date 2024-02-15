@@ -20,7 +20,6 @@ public class DemandePersonalisee {
     private Long id;
 
     @ManyToOne(cascade = CascadeType.PERSIST)
-    @JsonBackReference
     private User user;
 
     @NotBlank
