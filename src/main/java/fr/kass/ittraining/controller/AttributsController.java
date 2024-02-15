@@ -1,7 +1,6 @@
 package fr.kass.ittraining.controller;
 
 import fr.kass.ittraining.model.Attributs;
-import fr.kass.ittraining.model.Session;
 import fr.kass.ittraining.service.AttributsService;
 import org.springframework.web.bind.annotation.*;
 
@@ -50,6 +49,16 @@ public class AttributsController {
     public List<Attributs> findByNomContaining(@RequestParam String nom){
         return attributsService.findByNomContaining(nom);
     }
-
-
+    @GetMapping("/byNomCategorie")
+    public List<String> findNomCategorie(){
+        return attributsService.findNomCategorie();
+    }
+    @GetMapping("/byNomThemes")
+    public List<String> findNomThemes(){
+        return attributsService.findNomThemes();
+    }
+    @GetMapping("/byNomSousTheme")
+    public List<String> findNomSousThemes(){
+        return attributsService.findNomSousThemes();
+    }
 }
