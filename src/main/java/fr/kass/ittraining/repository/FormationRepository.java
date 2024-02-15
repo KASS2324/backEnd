@@ -9,9 +9,9 @@ import java.util.List;
 @Repository
 public interface FormationRepository extends JpaRepository<Formation, Long> {
 
-    List<Formation> findByTheme(String theme);
+    // List<Formation> findByTheme(String theme);
 
     List<Formation> findByVille(String ville);
 
-    List<Formation> findByThemeAndVille(String theme, String ville);
+    // List<Formation> findByThemeAndVille(String theme, String ville);
 }
