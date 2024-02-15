@@ -2,7 +2,6 @@ package fr.kass.ittraining.service;
 
 import fr.kass.ittraining.exception.NotFoundException;
 import fr.kass.ittraining.model.Attributs;
-import fr.kass.ittraining.model.Session;
 import fr.kass.ittraining.repository.AttributsRepository;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Service;
@@ -68,10 +67,17 @@ public class AttributsService {
         return attributsRepository.findByNomContaining(nom);
     }
 
-
-    public List<String> findThemes() {
-        return jdbcTemplate.queryForList("SELECT attributs.nom FROM attributs WHERE type LIKE 'Thème%' ", String.class);
+    public List<String> findNomCategorie() {
+        return jdbcTemplate.queryForList("SELECT DISTINCT attributs.nom FROM attributs WHERE type LIKE 'Catégorie%' ", String.class);
     }
+    public List<String> findNomThemes() {
+        return jdbcTemplate.queryForList("SELECT DISTINCT attributs.nom FROM attributs WHERE type LIKE 'Thème%' ", String.class);
+    }
+
+    public List<String> findNomSousThemes() {
+        return jdbcTemplate.queryForList("SELECT DISTINCT attributs.nom FROM attributs WHERE type LIKE 'Sous-Thème%' ", String.class);
+    }
+
 
 
 }
