@@ -7,6 +7,9 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Entity
 @Getter
 @Setter
@@ -22,15 +25,6 @@ public class Formation {
     private String nom;
 
     @NotBlank
-    private String categorie;
-
-    @NotBlank
-    private String theme;
-
-    @NotBlank
-    private String sousTheme;
-
-    @NotBlank
     private String prix;
 
     @NotBlank
@@ -44,4 +38,12 @@ public class Formation {
 
     @Column(name = "detail", columnDefinition = "VARCHAR(10000)")
     private String detail;
+
+    @ManyToMany(cascade = {CascadeType.PERSIST,CascadeType.MERGE})
+    @JoinTable(
+            name="formation_attributs",
+            joinColumns = @JoinColumn(name = "id_formation"),
+            inverseJoinColumns = @JoinColumn(name="id_attributs")
+    )
+    private List<Attributs> attributs = new ArrayList<Attributs>();
 }

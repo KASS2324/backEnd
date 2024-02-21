@@ -28,12 +28,11 @@ public class Session {
     @NotBlank
     private String dateEndSession;
 
-    @ManyToOne(cascade = CascadeType.PERSIST)
-    @JsonBackReference
+    @ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
+
     private Formation formation;
 
     @ManyToMany(cascade = {CascadeType.PERSIST,CascadeType.MERGE})
-    // @JsonManagedReference("user_session")
     @JoinTable(
             name="session_user",
             joinColumns = @JoinColumn(name = "id_session"),

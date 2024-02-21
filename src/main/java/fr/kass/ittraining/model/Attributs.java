@@ -2,30 +2,36 @@ package fr.kass.ittraining.model;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
-import jakarta.validation.constraints.*;
+import jakarta.validation.constraints.NotBlank;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Entity
-@Getter
-@Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class DemandePersonalisee {
-
+@Getter
+@Setter
+public class Attributs {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @ManyToOne(cascade = CascadeType.PERSIST)
-    private User user;
+    @NotBlank
+    private String nom;
 
     @NotBlank
-    private String typeFormation;
+    private String type;
 
+    @ManyToMany(mappedBy = "attributs")
+    @JsonBackReference("formation_attributs")
     @NotBlank
-    private String demande;
+    List<Formation> formations= new ArrayList<>();
+
+
 
 }
